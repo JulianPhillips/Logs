@@ -16,7 +16,7 @@ This project looks through a sql file and gives back the answers to these three 
 ## Steps 
 * Run psql -d news -f newsdata.sql on the virtual machine /vagrant folder to create the database
 
-### Write/Run these lines to create the necessary views:
+* Type psql into the virtual machine and run these lines to create the necessary views:
 
 '''create view access as
 select to_char(time, 'Month, DD, YYYY') as date, count(status) as access
@@ -39,7 +39,7 @@ from access, error
 where access.date = error.date
 ''' 
 
-### After creating these views you can run python3 Logs.py to generate the logs analysis
+* After creating these views you can run python3 Logs.py to generate the logs analysis
 
 
 ## Built with
@@ -47,3 +47,6 @@ where access.date = error.date
 * SQL
 ## Author
 Julian Parker
+
+## Acknowledgments
+Thank you to my Udacity instructor who helped me write a better ReadMe!
