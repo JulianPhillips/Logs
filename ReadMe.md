@@ -1,5 +1,6 @@
-#Logs Analysis Udacity
-###Full Stack Development ND
+# Logs Analysis Udacity
+
+### Full Stack Development ND
 
 ## About
 This project looks through a sql file and gives back the answers to these three questions
@@ -18,14 +19,16 @@ This project looks through a sql file and gives back the answers to these three 
 
 * Type psql into the virtual machine and run these lines to create the necessary views:
 
-'''create view access as
+''' 
+create view access as
 select to_char(time, 'Month, DD, YYYY') as date, count(status) as access
 from log
 group by date
 order by date
 '''
 
-''' create view error as
+''' 
+create view error as
 select to_char(time, 'Month, DD, YYYY') as date, count(status) as error
 from log
 where status like '4%'
@@ -33,7 +36,8 @@ group by date
 order by date
 '''
 
-''' create view rate_of_error as
+''' 
+create view rate_of_error as
 select access.date, round(100.00 * error / access, 2) as rate
 from access, error
 where access.date = error.date
