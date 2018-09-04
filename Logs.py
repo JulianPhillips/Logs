@@ -7,7 +7,10 @@ DBNAME = "news"
 
 def getData(query):
     """ fetches data from database """
-    db = psycopg2.connect(database=DBNAME)
+    try:
+        db = psycopg2.connect(database=DBNAME)
+    except:
+        print("Database Connection Error")    
     c = db.cursor()
     c.execute(query)
     data = c.fetchall()
